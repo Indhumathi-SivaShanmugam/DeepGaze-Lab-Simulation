@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arduino LED Blinking Experiment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Arduino LED Blinking Experiment</h1>
+        
+        <h2>Live Simulation</h2>
+        <iframe id="wokwi-frame" frameborder="0"></iframe>
+        <button id="loadProject">Load Wokwi Project</button>
+
+        <h2>Theory</h2>
+        <p>
+            This experiment demonstrates how to control an LED using an Arduino board. 
+            The **LED_BUILTIN** refers to the onboard LED of the Arduino, which is 
+            typically connected to **pin 13**. 
+        </p>
+        <h3>Working Principle</h3>
+        <ul>
+            <li>In the **setup()** function, pin 13 is set as an output using <code>pinMode()</code>.</li>
+            <li>The **loop()** function continuously turns the LED on and off.</li>
+            <li><code>digitalWrite(LED_BUILTIN, HIGH)</code> turns the LED on.</li>
+            <li>A **delay of 1 second** is added to keep the LED on.</li>
+            <li><code>digitalWrite(LED_BUILTIN, LOW)</code> turns the LED off.</li>
+            <li>Another **1-second delay** ensures a visible blinking effect.</li>
+        </ul>
+        
+        <h3>Code Explanation</h3>
+        <pre>
+void setup() {
+    pinMode(LED_BUILTIN, OUTPUT); // Set LED pin as output
+}
+
+void loop() {
+    digitalWrite(LED_BUILTIN, HIGH); // Turn LED ON
+    delay(1000);                     // Wait for 1 second
+    digitalWrite(LED_BUILTIN, LOW);  // Turn LED OFF
+    delay(1000);                     // Wait for 1 second
+}
+        </pre>
+
+        <h3>Applications</h3>
+        <p>
+            - Used in **traffic signals**, **indicator lights**, and **status LEDs**. <br>
+            - Helps beginners understand **basic microcontroller programming**. <br>
+            - Forms the foundation for more advanced **embedded systems projects**.
+        </p>
+    </div>
+    <div class="chat-container">
+        <h2>🔧 Wokwi Chat Assistant</h2>
+        <div id="chatbox">
+            <div class="bot-message">Hello! Ask me anything about your Wokwi experiments. 💡</div>
+        </div>
+        <input type="text" id="user-input" placeholder="Type your question here..." />
+        <button onclick="sendMessage()">Ask</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
